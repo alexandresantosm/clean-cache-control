@@ -3,11 +3,18 @@ import { LocalSavePurchases } from "@/data/usecases";
 
 class CacheStoreSpy implements CacheStore {
   deleteCallsCount = 0;
+  insertCallsCount = 0;
   key: string;
 
   delete(key: string): void {
     this.deleteCallsCount++;
     this.key = key;
+  }
+
+  simulateDeleteError(): void {
+    jest.spyOn(CacheStoreSpy.prototype, "delete").mockImplementationOnce(() => {
+      throw new Error();
+    });
   }
 }
 
@@ -38,5 +45,12 @@ describe("LocalSavePurchases", () => {
     const { cacheStore, sut } = makeSut();
     await sut.save();
     expect(cacheStore.key).toBe("purchases");
+  });
+
+  test("Should not insert new Cache if delete fails", () => {
+    const { cacheStore, sut } = makeSut();
+    cacheStore.simulateDeleteError();
+    const promise = sut.save();
+    expect(cacheStore.insertCallsCount).toBe(0);
   });
 });
