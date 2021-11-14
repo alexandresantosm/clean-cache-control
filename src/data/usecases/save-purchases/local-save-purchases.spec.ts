@@ -50,7 +50,14 @@ describe("LocalSavePurchases", () => {
   test("Should not insert new Cache if delete fails", () => {
     const { cacheStore, sut } = makeSut();
     cacheStore.simulateDeleteError();
-    const promise = sut.save();
+    sut.save();
     expect(cacheStore.insertCallsCount).toBe(0);
+  });
+
+  test("Should throws error if delete fails", () => {
+    const { cacheStore, sut } = makeSut();
+    cacheStore.simulateDeleteError();
+    const promise = sut.save();
+    expect(promise).rejects.toThrow();
   });
 });
