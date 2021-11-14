@@ -70,11 +70,19 @@ describe("LocalSavePurchases", () => {
     const timestamp = new Date();
     const { cacheStore, sut } = makeSut(timestamp);
     const purchases = mockPurchases();
-    await sut.save(purchases);
+    const promise = sut.save(purchases);
     expect(cacheStore.insertValues).toEqual({
       timestamp,
       value: purchases,
     });
+  });
+
+  test("Should insert purchases not return error", async () => {
+    const timestamp = new Date();
+    const { sut } = makeSut(timestamp);
+    const purchases = mockPurchases();
+    const promise = sut.save(purchases);
+    await expect(promise).resolves.toBeFalsy();
   });
 
   test("Should throws error if insert fails", async () => {
