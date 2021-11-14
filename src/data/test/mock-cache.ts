@@ -3,9 +3,15 @@ import { SavePurchases } from "@/domain/usecases";
 
 export class CacheStoreSpy implements CacheStore {
   actions: Array<CacheStoreSpy.Action> = [];
+  fetchKey: string;
   deleteKey: string;
   insertKey: string;
   insertValues: Array<SavePurchases.Params> = [];
+
+  fecth(key: string): void {
+    this.actions = [...this.actions, CacheStoreSpy.Action.fetch];
+    this.fetchKey = key;
+  }
 
   delete(key: string): void {
     this.actions = [...this.actions, CacheStoreSpy.Action.delete];
@@ -42,5 +48,6 @@ export namespace CacheStoreSpy {
   export enum Action {
     delete,
     insert,
+    fetch,
   }
 }
