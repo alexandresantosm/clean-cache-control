@@ -8,7 +8,7 @@ export class CacheStoreSpy implements CacheStore {
   insertKey: string;
   insertValues: Array<SavePurchases.Params> = [];
 
-  fecth(key: string): void {
+  fetch(key: string): void {
     this.actions = [...this.actions, CacheStoreSpy.Action.fetch];
     this.fetchKey = key;
   }

@@ -17,6 +17,6 @@ export class LocalLoadPurchases implements SavePurchases {
   }
 
   async loadAll(): Promise<void> {
-    this.cacheStore.fecth(this.key);
+    this.cacheStore.fetch(this.key);
   }
 }
