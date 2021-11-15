@@ -23,11 +23,7 @@ export class LocalLoadPurchases implements SavePurchases, LoadPurchases {
         cache.timestamp,
         this.currentDate
       );
-      if (isValidDate) {
-        return cache.value;
-      } else {
-        return [];
-      }
+      return isValidDate ? cache.value : [];
     } catch (error) {
       return [];
     }
