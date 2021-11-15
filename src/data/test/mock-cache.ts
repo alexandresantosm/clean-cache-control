@@ -7,10 +7,12 @@ export class CacheStoreSpy implements CacheStore {
   deleteKey: string;
   insertKey: string;
   insertValues: Array<SavePurchases.Params> = [];
+  fetchResult: any;
 
-  fetch(key: string): void {
+  fetch(key: string): any {
     this.actions = [...this.actions, CacheStoreSpy.Action.fetch];
     this.fetchKey = key;
+    return this.fetchResult;
   }
 
   delete(key: string): void {
