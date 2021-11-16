@@ -1,33 +1,6 @@
 # **Clean Cache Control**
 
-<style>
-  #div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;    
-    align-items: flex-end;
-  }
-  #link {
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30%;
-      height: 30px;
-      cursor: pointer;
-      line-height: 3rem;
-      background-color: #2196F3;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-  }
-</style>
-
-<div id="div">
-  <a id="link" href="/.github/Readme.md" title="Traduzir para o Inglês">Traduzir para 🇺🇸</a>
-<div>
+[Translate to 🇺🇸](/.github/Readme.md)
 
 <br>
 
