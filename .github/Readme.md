@@ -1,34 +1,6 @@
 # **Clean Cache Control**
 
-<style>
-  #div {
-    
-    display: flex;
-    flex-direction: column;
-    width: 100%;    
-    align-items: flex-end;
-  }
-  #link {
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30%;
-      height: 30px;
-      cursor: pointer;
-      line-height: 3rem;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-  }
-</style>
-
-<div id="div">
-  <a id="link" href="/Readme.md"  title="Translate to Portuguese">Translate to 🇧🇷</a>
-<div>
+[Translate to 🇧🇷](/Readme.md)
 
 <br>
 
