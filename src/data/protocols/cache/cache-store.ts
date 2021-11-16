@@ -1,5 +1,3 @@
-import { SavePurchases } from "@/domain/usecases";
-
 export interface CacheStore {
   fetch: (key: string) => any;
   delete: (key: string) => void;
